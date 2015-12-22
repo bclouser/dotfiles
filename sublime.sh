@@ -18,6 +18,15 @@ function installSublimePlugins {
 function configureSublime {
 	echo ""
 	echo "Configuring Sublime Text..."
-	
+	SUBLIME_SETTINGS_FILE="~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"	
 
+	if [ -f $SUBLIME_SETTINGS_FILE ];then
+		rm $SUBLIME_SETTINGS_FILE || {
+			echo "Failed to remove $SUBLIME_SETTINGS_FILE, thats bad"
+			exit 1
+		} 
+	fi
+
+	# Link the sublime settings to our config file...
+	ln -s $(pwd)/Preferences.sublime-settings $SUBLIME_SETTINGS_FILE
 }
