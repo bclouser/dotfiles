@@ -37,12 +37,9 @@ ln -s $(pwd)/vimrc ~/.vimrc || {
  echo "Failed to link vimrc"
 }
 
-#ln -s $(pwd)/bashrc ~/.bashrc
-
-ln -s $(pwd)/bash_profile ~/.bash_profile || {
- echo "Failed to link bash_profile"
-}
-
+# Append the consoleString... Hmm, dangerous to do more than once
+cat ./bashrc_addons >> ~/.bashrc
+echo "" >> ~/.bashrc
 
 echo ""
 echo "Done"
