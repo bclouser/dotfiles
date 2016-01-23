@@ -2,46 +2,38 @@
 SMYCK_REPO_DIR="$(pwd)/Smyck-Color-Scheme"
 
 # TODO, This should be able to run on redhat/fedora, debian, and mac os... currently debian specific
+export OS=$(uname -s)
 
-
-source devToolEssentials.sh
-source fonts.sh
-source sublime.sh
-
-
-installEssentialApps
-installFonts
-installSublimePlugins
-configureSublime
-
-
-########################################################
-# Take care of setting up configs
-########################################################
+if [ "${OS}" == "Linux" ]; then
+	echo "Running on Linux"
+	source devToolEssentials_linux.sh
+	source fonts_linux.sh
+	source sublime_linux.sh
+	source configs_linux.sh
+	
+elif [ "${OS}" == "Darwin" ]; then
+	echo "Running on Mac Os"
+	source devToolEssentials_mac.sh
+	source fonts_mac.sh
+	source sublime_mac.sh
+	source configs_mac.sh
+fi
 
 echo ""
+echo "Installing essential applications..."
+installEssentialApps
+echo ""
+echo "Installing fonts..."
+installFonts
+echo ""
+echo "Installing sublime plugins..."
+installSublimePlugins
+echo ""
+echo "Configuring Sublime"
+configureSublime
+echo ""
 echo "Configuring dot files..."
-
-mkdir -p ${HOME}/.vim/colors
-
-# Install smyck vim color scheme
-ln -s $SMYCK_REPO_DIR/smyck.vim ${HOME}/.vim/colors/smyck.vim || {
- echo "failed to add smyck.vim to vim"
-}
-
-# Terminator config file
-ln -s $(pwd)/terminator-config ${HOME}/.config/terminator/config || {
- echo "Failed to link terminator config"
-}
-
-# Create symlinks for rc files
-ln -s $(pwd)/vimrc ${HOME}/.vimrc || {
- echo "Failed to link vimrc"
-}
-
-# Append the consoleString... Hmm, dangerous to do more than once
-cat ./bashrc_addons >> ${HOME}/.bashrc
-echo "" >> ${HOME}/.bashrc
+setupConfigFiles
 
 echo ""
 echo "Done"
