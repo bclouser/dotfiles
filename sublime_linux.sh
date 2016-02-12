@@ -19,8 +19,8 @@ function configureSublime {
 	SUBLIME_PACKAGES_USR_DIR="${HOME}/.config/sublime-text-3/Packages/User"
 	SUBLIME_SETTINGS_FILE="${SUBLIME_PACKAGES_USR_DIR}/Preferences.sublime-settings"	
 	echo $SUBLIME_SETTINGS_FILE
+	mkdir -p $SUBLIME_PACKAGES_USR_DIR	
 
-	echo $(whoami)
 	echo $(ls -l $SUBLIME_SETTINGS_FILE)
 	# Check if regular file or if symbolic link
 	if [ -h $SUBLIME_SETTINGS_FILE ];then

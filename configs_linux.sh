@@ -3,14 +3,16 @@
 
 function setupConfigFiles {
 
+# Install smyck vim color scheme
 mkdir -p ${HOME}/.vim/colors
 
-# Install smyck vim color scheme
 ln -s $SMYCK_REPO_DIR/smyck.vim ${HOME}/.vim/colors/smyck.vim || {
  echo "failed to add smyck.vim to vim"
 }
 
 # Terminator config file
+mkdir -p ${HOME}/.config/terminator
+
 ln -s $(pwd)/terminator-config ${HOME}/.config/terminator/config || {
  echo "Failed to link terminator config"
 }
@@ -28,6 +30,9 @@ grep "$FIRST_LINE" ${HOME}/.bashrc
 
 # if exit status is not 0, it doesn't already exist in bashrc
 if [ "$?" -ne 0 ];then
+	echo "" >> ${HOME}/.bashrc
+	echo "" >> ${HOME}/.bashrc
+	echo "" >> ${HOME}/.bashrc
 	cat ./bash_addons >> ${HOME}/.bashrc
 	echo "" >> ${HOME}/.bashrc
 fi
