@@ -19,6 +19,10 @@ elif [ "${OS}" == "Darwin" ]; then
 	source configs_mac.sh
 fi
 
+# I always forget to clone --recursive so i figured i would just add these here.
+git submodule init
+git submodule update
+
 echo ""
 echo "Installing essential applications..."
 installEssentialApps

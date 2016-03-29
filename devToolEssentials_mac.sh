@@ -3,6 +3,10 @@
 
 function installEssentialApps {
 	
-	echo "Currently nothing to install on mac os... Gunna need homebrew"
+	xcode-select --install
 
+	# Install Brew
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" || {
+		echo "Installing brew seems to have failed"
+	}
 }
