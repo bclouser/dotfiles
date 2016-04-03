@@ -1,37 +1,25 @@
 #!/usr/bin/env bash
 
-# TODO figure out how to install these
-function installSublimePlugins {
-#modific /*git tracking and shows diffs with ctrl-alt-d*/
-#text-pastry /*useful commands for incrementing multiple selection etc.*/
-#SideBarEnhancements /* Most useful for "show in dir" */
-#BracketHighlighter
-#jquery
-#html5 
-#monokai extended /* color scheme*/
-#SodaReloaded Theme
-echo "Function not yet implemented"
-}
+# This is platform independent, this should run on all systems!
+# Variables in here should be defined elsewhere to accomodate the platform
+# IF I ever have to care about windows... this could get interesting
 
+# These vars are for our local file tree
+SUBLIME_CONFIGS_PATH="$(pwd)"
+SUBLIME_SNIPPETS_DIR="$(pwd)/snippets"
 
 function configureSublime {
-	USER=$(whoami)
-	SUBLIME_PACKAGES_USR_DIR="${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
-	SUBLIME_SETTINGS_FILENAME="Preferences.sublime-settings"
-	SUBLIME_PKG_MNGR_FILENAME="Package Control.sublime-package"
-	SUBLIME_PKGS_FILENAME="Package Control.sublime-settings"
-
-	SUBLIME_SETTINGS_FILE="${SUBLIME_PACKAGES_USR_DIR}/Preferences.sublime-settings"
-	SUBLIME_PKGS_FILE="${SUBLIME_PACKAGES_USR_DIR}/${SUBLIME_PKGS_FILENAME}"	
-	SUBLIME_PKG_MNGR_FILE="${HOME}/Library/Application Support/Sublime Text 3/Installed Packages/${SUBLIME_PKG_MNGR_FILENAME}"
-
-	SUBLIME_CONFIGS_PATH="$(pwd)/sublimeConfigs"
-
-	echo "Sublime Settings file: $SUBLIME_SETTINGS_FILE"
-	echo "Sublime Package manager file: $SUBLIME_PKG_MNGR_FILE"
-
-	echo $(ls -l "$SUBLIME_SETTINGS_FILE")
-
+	echo "#### Sublime Configuration Vars ####"
+	echo "    USER = ${USER}"
+	echo "    SUBLIME_SETTINGS_FILENAME = ${SUBLIME_SETTINGS_FILENAME}"
+	echo "    SUBLIME_PKG_MNGR_FILENAME = ${SUBLIME_PKG_MNGR_FILENAME}"
+	echo "    SUBLIME_PKGS_FILENAME = ${SUBLIME_PKGS_FILENAME}"
+	echo "    SUBLIME_PACKAGES_USR_DIR = ${SUBLIME_PACKAGES_USR_DIR}"
+	echo "    SUBLIME_SETTINGS_FILE = ${SUBLIME_SETTINGS_FILE}"
+	echo "    SUBLIME_PKGS_FILE = ${SUBLIME_PKGS_FILE}"
+	echo "    SUBLIME_PKG_MNGR_FILE = ${SUBLIME_PKG_MNGR_FILE}"
+	echo ""
+	echo ""
 
 	if [ -h "$SUBLIME_SETTINGS_FILE"  &> /dev/null ] || [ -f "$SUBLIME_SETTINGS_FILE" ];then
 		rm "$SUBLIME_SETTINGS_FILE" || {
@@ -74,7 +62,6 @@ function configureSublime {
 
 	
 	echo "Adding in custom sublime snippets..."
-	SUBLIME_SNIPPETS_DIR=$(pwd)/sublimeSnippets
 	files=$( ls  ${SUBLIME_SNIPPETS_DIR})
 	for i in $files ; do
 		ln -s $"{SUBLIME_PACKAGES_USR_DIR}/${i}" "${SUBLIME_SNIPPETS_DIR}/${i}"||{
