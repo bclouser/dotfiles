@@ -24,7 +24,7 @@ ln -s $(pwd)/vimrc ${HOME}/.vimrc || {
 
 # Append the consoleString... Hmm, dangerous to do more than once
 # The first line must be unique. Should be some comment
-FIRST_LINE=$(head -n 1 ./bash_addons)
+FIRST_LINE=$(head -n 1 ./bash_addons_generic)
 # Search for first line of our custom bashrc in the existing bashrc
 grep "$FIRST_LINE" ${HOME}/.bashrc 
 
@@ -33,7 +33,7 @@ if [ "$?" -ne 0 ];then
 	echo "" >> ${HOME}/.bashrc
 	echo "" >> ${HOME}/.bashrc
 	echo "" >> ${HOME}/.bashrc
-	cat ./bash_addons >> ${HOME}/.bashrc
+	cat ./bash_addons_generic >> ${HOME}/.bashrc
 	echo "" >> ${HOME}/.bashrc
 fi
 
