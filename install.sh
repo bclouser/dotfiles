@@ -47,6 +47,14 @@ echo ""
 setupConfigFiles
 
 echo ""
+echo "======== Asking for you to set editor of choice ======="
+sudo update-alternatives --config editor
+
+echo ""
+echo "======== Setting kdiff3 as the default mergetool ======="
+git config --global merge.tool kdiff3
+
+echo ""
 echo "======== Done ========"
 echo ""
 
