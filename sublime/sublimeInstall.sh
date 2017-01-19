@@ -73,7 +73,7 @@ function configureSublime {
 
 	
 	echo "Adding in custom sublime snippets..."
-	files=$( ls  ${SUBLIME_SNIPPETS_DIR})
+	files=$( ls  ${CWD}/${SUBLIME_SNIPPETS_DIR})
 	for i in $files ; do
 		ln -s $"{SUBLIME_PACKAGES_USR_DIR}/${i}" "${SUBLIME_SNIPPETS_DIR}/${i}"||{
 			echo "Problem linking ${i}, does it already exist?"
