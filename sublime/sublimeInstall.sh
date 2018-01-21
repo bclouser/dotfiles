@@ -30,6 +30,11 @@ function configureSublime {
 	echo ""
 	echo ""
 
+	# WE should probably just open the application once and then tear it down...
+	mkdir -p $SUBLIME_SETTINGS_DIR
+	mkdir -p $SUBLIME_PKGS_DIR
+	mkdir -p $SUBLIME_PKG_MNGR_DIR
+
 	if [ -h "$SUBLIME_SETTINGS_FILE"  &> /dev/null ] || [ -f "$SUBLIME_SETTINGS_FILE" ];then
 		rm "$SUBLIME_SETTINGS_FILE" || {
 			echo "Failed to remove $SUBLIME_SETTINGS_FILE, thats bad"

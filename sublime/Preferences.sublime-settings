@@ -13,7 +13,7 @@
 	],
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
+	"search_in_project_engine": "the_silver_searcher",
 	"theme": "SoDaReloaded Dark.sublime-theme",
-	"word_wrap": true,
-	"search_in_project_engine":"the_silver_searcher"
+	"word_wrap": true
 }
