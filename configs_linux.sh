@@ -37,4 +37,7 @@ if [ "$?" -ne 0 ];then
 	echo "" >> ${HOME}/.bashrc
 fi
 
+# Configure cron jobs
+$(pwd)/installCronJobs.sh
+
 }

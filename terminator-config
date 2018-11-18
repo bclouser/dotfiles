@@ -15,7 +15,6 @@
   [[default]]
     background_color = "#2d2d2d"
     background_darkness = 0.84
-    background_image = None
     background_type = transparent
     cursor_color = "#c75646"
     foreground_color = "#f7f7f7"
