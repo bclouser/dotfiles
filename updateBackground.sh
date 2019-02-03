@@ -20,8 +20,9 @@ export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$PID/en
 
 
 echo "DBUS_SESSION_BUS_ADDRESS is $DBUS_SESSION_BUS_ADDRESS"
-PIC=$(find $WALLPAPER_DIR -type f | shuf -n1)
-echo "($(date +"%T_%D")) Changing to $PIC" > /tmp/desktopChange.log
+# Find all files in wallpaper dir skipping hidden files
+PIC=$(find $WALLPAPER_DIR -not -path '*/\.*' -type f | shuf -n1)
+echo "($(date +"%T_%D")) Changing to ${PIC}" >> /tmp/desktopChange.log
 gsettings set org.gnome.desktop.background picture-uri "file://$PIC"
 
 
