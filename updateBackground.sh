@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-WALLPAPER_DIR=${WALLPAPER_DIR:-/home/bclouser/Dropbox/desktops}
+WALLPAPER_DIR=${WALLPAPER_DIR:-${HOME}/Dropbox/desktops}
 
 echo "WALLPAPER_DIR=$WALLPAPER_DIR"
 
