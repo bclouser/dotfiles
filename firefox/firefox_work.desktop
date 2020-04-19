@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Firefox Work Account
-GenericName=Firefox Work
-Exec=/usr/bin/firefox -P Work --no-remote
-Icon=/home/bclouser/dotfiles/firefox/icons/firefox_work.png
-Type=Application
-Categories=Network;WebBrowser;
-MimeType=text/html;

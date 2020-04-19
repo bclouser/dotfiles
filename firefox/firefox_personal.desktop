@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Firefox Personal Account
-GenericName=Firefox Personal
-Exec=/usr/bin/firefox -P Personal --no-remote
-Icon=/home/bclouser/dotfiles/firefox/icons/firefox_personal.png
-Type=Application
-Categories=Network;WebBrowser;
-MimeType=text/html;
