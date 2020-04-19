@@ -23,6 +23,8 @@ echo "DBUS_SESSION_BUS_ADDRESS is $DBUS_SESSION_BUS_ADDRESS"
 # Find all files in wallpaper dir skipping hidden files
 PIC=$(find $WALLPAPER_DIR -not -path '*/\.*' -type f | shuf -n1)
 echo "($(date +"%T_%D")) Changing to ${PIC}" >> /tmp/desktopChange.log
-gsettings set org.gnome.desktop.background picture-uri "file://$PIC"
+gsettings set org.gnome.desktop.background picture-uri "file://$PIC" || {
+	echo "Failed to set desktop background :("
+}
 
 
