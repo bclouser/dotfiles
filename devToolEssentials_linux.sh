@@ -2,7 +2,7 @@
 
 
 function installEssentialApps {
-	sudo apt-get install -y vim || {echo "Failed to install vim"}
+	sudo apt-get install -y vim vim-gui install vim-runtime|| {echo "Failed to install vim"}
 
 	sudo apt-get install -y terminator || {echo "Failed to install terminator"}
 	
